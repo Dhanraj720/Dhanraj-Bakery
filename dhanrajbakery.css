@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #ffffff;
+    --lime: #b3ed07;
+    --lime-light: #d2f27c;
+    --blue: #22318a;
+    --navy: #00002f;
+    --pink: #ffb6c1;
+    --ink: #20183b;
+
+    /* One side-spacing value used by every section.
+       Shrinks automatically on small screens. */
+    --gutter: clamp(1.25rem, 6vw, 5rem);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--ink);
+    background-color: var(--white);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem var(--gutter);
+    background-color: var(--lime);
+}
+
+.logo {
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        left: 0;
+        bottom: 0.1rem;
+        border-bottom: 0.1rem solid var(--ink);
+        transition: width 0.3s ease;
+    }
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    min-height: 80vh;
+    padding: 4rem var(--gutter) 8rem; /* extra bottom space for the wave */
+    background-image: linear-gradient(to bottom, var(--lime), var(--lime-light));
+}
+
+h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.2;
+    color: var(--blue);
+}
+
+.hero p {
+    max-width: 34rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.07rem;
+    color: var(--ink);
+}
+
+.button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 1.7rem;
+    border-radius: 1.8rem;
+    background-color: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--navy);
+}
+
+.button:focus-visible,
+nav a:focus-visible,
+.logo:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    max-width: 25rem;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Wave divider */
+
+.custom-shape-divider-bottom-1791177264 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1791177264 svg {
+    position: relative;
+    display: block;
+    width: calc(139% + 1.3px);
+    height: clamp(60px, 9vw, 112px);
+}
+
+.custom-shape-divider-bottom-1791177264 .shape-fill {
+    fill: var(--white);
+}
+
+/* ---------- Menu ---------- */
+
+.menu {
+    padding: 3rem var(--gutter);
+}
+
+.menu h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.08rem;
+    color: var(--blue);
+}
+
+.menu ul {
+    max-width: 36rem;
+    margin-top: 2rem;
+    list-style: none;
+}
+
+.menu li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 0.1rem dotted var(--pink);
+}
+
+.price {
+    font-weight: 600;
+}
+
+/* ---------- Visit ---------- */
+
+.visit {
+    padding: 4rem var(--gutter);
+    background-color: var(--pink);
+}
+
+.visit h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--blue);
+}
+
+.visit p {
+    letter-spacing: 0.01rem;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+    padding: 1.5rem var(--gutter);
+    background-color: var(--ink);
+}
+
+footer p {
+    font-size: 1rem;
+    color: var(--white);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 700px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 3rem;
+    }
+
+    .hero-image img {
+        max-width: 18rem;
+    }
+
+    .menu h2,
+    .visit h2 {
+        font-size: 1.6rem;
+    }
+}
